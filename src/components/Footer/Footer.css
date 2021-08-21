@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+.footer .footer-nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-between;
+}
+.footer .footer-nav li {
+  font-size: 14px;
+  margin: 0 20px;
+}
+
+/*# sourceMappingURL=Footer.css.map */

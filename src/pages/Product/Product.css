@@ -1,0 +1,59 @@
+.product-page-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.product-page-container .product-left, .product-page-container .product-right {
+  padding: 20px;
+}
+.product-page-container .product-left ul, .product-page-container .product-right ul {
+  list-style: none;
+  text-align: start;
+}
+.product-page-container .product-left {
+  width: 70%;
+}
+.product-page-container .product-left .product-out {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0.5em;
+  color: white;
+  background: grey;
+}
+.product-page-container .product-left ul img {
+  width: 100%;
+}
+.product-page-container .product-right {
+  width: 30%;
+}
+.product-page-container .product-right ul {
+  display: flex;
+  flex-direction: column;
+}
+.product-page-container .product-right ul li {
+  margin-bottom: 40px;
+}
+.product-page-container .product-right ul li pre {
+  white-space: normal;
+  word-break: break-word;
+}
+.product-page-container .product-right ul li pre p {
+  margin-bottom: 1em;
+}
+.product-page-container .product-right ul li .li-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.product-page-container .product-right ul li .product-name {
+  font-size: 35px;
+  font-weight: bold;
+}
+.product-page-container .product-right ul li .product-price {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=Product.css.map */

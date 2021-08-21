@@ -1,0 +1,54 @@
+.header {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  transition: all 0.5s ease-in-out;
+}
+.header .header-left, .header .header-right {
+  width: 200px;
+}
+.header-item svg {
+  height: 12px;
+  transition: all 0.5s ease-in-out;
+}
+.header-item .svg-large {
+  height: 16px;
+}
+.header-item ul {
+  font-size: 16px;
+  font-weight: 600;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-item ul li {
+  margin: 0 10px;
+}
+.header-item ul li button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.header-item ul li span {
+  transition: all 0.5s ease-in-out;
+}
+.header-item ul li .cart-number {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+
+/*# sourceMappingURL=Header.css.map */

@@ -1,0 +1,16 @@
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  .footer-nav{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    li{
+      font-size: 14px;
+      margin: 0 20px;
+    }
+  }
+}

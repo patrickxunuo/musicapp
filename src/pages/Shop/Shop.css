@@ -1,0 +1,61 @@
+.shop-page-container {
+  margin-top: -100px;
+}
+.shop-page-container section {
+  text-align: center;
+  width: 100%;
+}
+.shop-page-container section .shop-large-img {
+  width: 100%;
+}
+.shop-page-container section .shop-large-text-container {
+  position: relative;
+  top: 400px;
+}
+.shop-page-container section .shop-large-text-container div {
+  color: white;
+  font-weight: bold;
+}
+.shop-page-container section .shop-large-text-container div:first-child {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.shop-page-container section .shop-large-text-container div:last-child {
+  font-size: 30px;
+}
+.shop-page-container section .shop-large-btn-container {
+  width: 100%;
+  position: relative;
+  bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.shop-page-container section .shop-large-btn-container .shop-large-btn {
+  width: 50px;
+  height: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+.shop-page-container section .shop-large-btn-container .shop-large-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 2px;
+  background: white;
+}
+.shop-page-container section .product-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: start;
+  margin-left: 50px;
+}
+.shop-page-container section .product-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=Shop.css.map */

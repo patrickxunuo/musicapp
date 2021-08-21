@@ -1,0 +1,28 @@
+.cart-item-container {
+  border-bottom: 1px grey solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 30px;
+  font-size: 20px;
+}
+.cart-item-container .cart-column-second {
+  width: 300px;
+}
+.cart-item-container .cart-column-second div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.cart-item-container img {
+  width: 80px;
+  height: 80px;
+}
+.cart-item-container button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/*# sourceMappingURL=CartItem.css.map */
