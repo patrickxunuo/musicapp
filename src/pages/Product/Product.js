@@ -1,81 +1,74 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {products} from "../../data/products";
 import './Product.css'
-import QuantitySelector from "../../components/QuantitySelector/QuantitySelector";
+import {useDispatch, useSelector} from "react-redux";
+import {addNewItemToCart} from "../../redux/reducers/cartReducer";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlay, faPause} from '@fortawesome/free-solid-svg-icons'
+import {AnimatePresence, motion} from 'framer-motion'
 
-
-const productRightFixed={
-  position: 'fixed',
-  right: 0,
-}
-
-const productRightScroll={
-  position: 'relative',
-  top: 1000,
+const backdropVariants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  }
 }
 
 const Product = () => {
-  const [scrollY,setScrollY] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef()
   const {id} = useParams()
-  const product = products[id - 1]
-  const {name, price, out, description} = product
+  const productList = useSelector(state => state.productReducer.products)
+  const product = productList.find(item => {
+    return JSON.stringify(item.id) === id
+  })
+  const {title, artist, price, cover, stream} = product
+  const dispatch = useDispatch()
 
-  useEffect(()=>{
-    window.addEventListener('scroll',handleScroll)
-  },[])
-
-  const handleScroll = (e) => {
-    setScrollY(e.target.scrollingElement.scrollTop)
-  }
-
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]);
 
   return (
+    product &&
     <div className="product-page-container">
-      <section className="product-left">
-        {
-          out &&
-            <div className="product-out">Out of stack</div>
-        }
-        <ul>
-          {
-            product.imgList.map(img => <img key={img} src={img} alt=""/>)
-          }
-        </ul>
-      </section>
-      <section className="product-right" style={scrollY>1000?productRightScroll:productRightFixed}>
-        <ul>
-          <li>
-            <div className="product-name">{name}</div>
-            <div className="product-price">${price}</div>
-          </li>
-          {
-            !out &&
-              <QuantitySelector product={product}/>
-          }
-          {out &&
-          <li>
-            <div>This item is out of stock</div>
-            <div>Email me when this item is restocked</div>
-          </li>
-          }
-          <li>
-            <div className="li-title">Description</div>
-            <pre>{description.split('\n').map((str,index)=><p key={index}>{str}</p>)}</pre></li>
-          {product.incentives &&
-            <li>
-              <div className="li-title">Incentives</div>
-              <pre>{product.incentives.split('\n').map((str,index)=><p key={index}>{str}</p>)}</pre>
-            </li>
-          }
-          {product.InstallationGuidance&&
-          <li>
-            <div className="li-title">Installation Guidance</div>
-            <pre>{product.InstallationGuidance.split('\n').map((str,index)=><p key={index}>{str}</p>)}</pre>
-          </li>
-          }
-        </ul>
-      </section>
+      <div className="product-page-content">
+        <div className="product-page-top">
+          <div>
+            <div className="product-page-img" style={{backgroundImage: `url('${cover}')`}}
+                 onClick={() => setIsPlaying(!isPlaying)}>
+              {isPlaying ? <FontAwesomeIcon icon={faPause}/> : <FontAwesomeIcon icon={faPlay}/>}
+            </div>
+          </div>
+          <div className="product-page-info">
+            <ul>
+              <li>{title}</li>
+              <li>{artist}</li>
+              <li>${price}</li>
+              <li>
+                <button onClick={() => addNewItemToCart(product)(dispatch)}>Add to cart</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <audio controls autoPlay controlsList="nodownload" ref={audioRef}>
+            <source
+              src={stream}
+              type="audio/mpeg"
+            />
+          </audio>
+        </div>
+      </div>
     </div>
   )
 }

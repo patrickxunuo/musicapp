@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin: 50px;
   .footer-nav{
     display: flex;
@@ -9,7 +10,7 @@
     list-style: none;
     justify-content: space-between;
     li{
-      font-size: 14px;
+      font-size: clamp(8px, 1vw,14px);
       margin: 0 20px;
     }
   }

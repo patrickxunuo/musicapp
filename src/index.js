@@ -7,6 +7,8 @@ import {Provider as ReduxProvider} from 'react-redux'
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import reducers from "./redux/reducers";
+import './fonts/TESLA.ttf'
+import { BrowserRouter as Router} from "react-router-dom";
 
 const devStage = true
 
@@ -18,7 +20,9 @@ const reduxStore = createStore(
 
 ReactDOM.render(
   <ReduxProvider store={reduxStore}>
-    <App />
+    <Router>
+      <App />
+      </Router>
   </ReduxProvider>,
   document.getElementById('root')
 );

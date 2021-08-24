@@ -1,0 +1,28 @@
+.home-page-container{
+  min-height: 87vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .home-page-title{
+    font-size: clamp(10px,5vw,60px);
+  }
+  .home-page-btn{
+    display: none;
+    margin: 50px;
+    cursor: pointer;
+    a{
+      color: black;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media only screen and (max-width:900px){
+  .home-page-container{
+    .home-page-btn{
+      display: block;
+    }
+  }
+}

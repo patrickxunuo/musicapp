@@ -14,21 +14,23 @@
   background: white;
   z-index: 30;
 }
+.cart-container .cart-middle {
+  overflow-y: auto;
+  max-height: 70vh;
+}
 .cart-container .cart-top {
   border-bottom: 1px grey solid;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.cart-container .cart-top div, .cart-container .cart-top button {
+.cart-container .cart-top div {
   margin: 20px;
 }
-.cart-container .cart-top button {
-  border: 1px black solid;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: none;
+.cart-container .cart-top .btn-tocart {
+  text-decoration: underline;
+}
+.cart-container .cart-top .btn-hidecart {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,13 +41,12 @@
   width: 100%;
   bottom: 0;
   height: 200px;
-  border-top: 1px grey solid;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
-.cart-container .cart-bottom button {
+.cart-container .cart-bottom .btn-checkout {
   border: none;
   background: #3e6ae1;
   width: 200px;
@@ -55,8 +56,15 @@
   font-weight: bold;
   cursor: pointer;
 }
-.cart-container .cart-bottom button:disabled {
-  background: #6688e5;
+.cart-container .cart-bottom .btn-checkout:disabled {
+  background: lightskyblue;
+  cursor: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .cart-container {
+    width: 300px;
+  }
 }
 
 /*# sourceMappingURL=Cart.css.map */

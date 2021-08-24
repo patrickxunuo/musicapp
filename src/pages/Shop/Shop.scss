@@ -1,71 +1,52 @@
 .shop-page-container {
-  margin-top: -100px;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 87vh;
 
-  section {
+  .shop-page-content {
     text-align: center;
-    width: 100%;
+    width: 90%;
 
-    .shop-large-img {
-      width: 100%;
+    .shop-page-title {
+      font-size: clamp(20px, 10vw, 100px);
     }
 
-    .shop-large-text-container {
-      position: relative;
-      top: 400px;
-
-      div {
-        color: white;
-        font-weight: bold;
-
-        &:first-child {
-          font-size: 20px;
-          margin-bottom: 10px;
-        }
-
-        &:last-child {
-          font-size: 30px;
-        }
-      }
-
-    }
-
-    .shop-large-btn-container {
-      width: 100%;
-      position: relative;
-      bottom: 50px;
+    .shop-page-subtitle {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-
-      .shop-large-btn {
-        width: 50px;
-        height: 10px;
-        margin: 5px;
-        cursor: pointer;
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          width: 50px;
-          height: 2px;
-          background: white;
-        }
-      }
-    }
-
-    .product-title {
+      justify-content: space-between;
+      align-items: center;
       font-size: 30px;
       font-weight: bold;
       text-align: start;
-      margin-left: 50px;
     }
 
-    .product-items {
+    .shop-page-items {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .shop-page-container {
+    .shop-page-content {
+      .shop-page-subtitle {
+        justify-content: center;
+        margin: 20px;
+      }
+
+      .shop-page-count {
+        display: none;
+      }
+
+      .shop-page-items {
+        justify-content: center;
+      }
     }
   }
 }

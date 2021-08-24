@@ -25,7 +25,7 @@ const QuantitySelector = ({product}) => {
         <span>{quantity}</span>
         <button onClick={()=>setQuantity(quantity+1)}>+</button>
       </div>
-      <div><button className="add-cart-btn" onClick={handleAddNewItem}>ADD TO CART</button></div>
+      <div><button className="quantity-selector-btn-add" onClick={handleAddNewItem}>ADD TO CART</button></div>
     </li>
   )
 }

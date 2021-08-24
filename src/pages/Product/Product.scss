@@ -1,69 +1,136 @@
 .product-page-container {
-  margin-top: 50px;
+  padding-top: 100px;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 87vh;
 
-  .product-left, .product-right {
-    padding: 20px;
 
-    ul {
-      list-style: none;
-      text-align: start;
-    }
-  }
+  .product-page-content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index:10;
 
-  .product-left {
-    width: 70%;
-
-    .product-out {
-      position: absolute;
-      top: 70px;
-      left: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 0.5em;
-      color: white;
-      background: grey;
-    }
-
-    ul {
-      img {
-        width: 100%;
-      }
-    }
-  }
-
-  .product-right {
-    width: 30%;
-
-    ul {
+    .product-page-top {
+      width: 100%;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-evenly;
 
-      li {
-        margin-bottom: 40px;
+      .product-page-info {
+        display: flex;
+        align-items: center;
+      }
 
-        pre{
-          white-space:normal;
-          word-break: break-word;
+      ul {
+        list-style: none;
 
-          p{
-            margin-bottom: 1em;
+        li {
+          font-size: 20px;
+          margin-bottom: 20px;
+
+          button {
+            width: 200px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 1em;
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+              background: #a4a0a0;
+            }
           }
         }
+      }
 
-        .li-title{
-          font-weight: bold;
-          margin-bottom: 20px;
-        }
-        .product-name {
-          font-size: 35px;
-          font-weight: bold;
-        }
+      .product-page-img {
+        height: clamp(300px,20vw, 400px);
+        width: clamp(300px,20vw, 400px);
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        color: white;
+        cursor: pointer;
+      }
+    }
 
-        .product-price {
-          font-size: 25px;
-          font-weight: bold;
+    audio {
+      width: 60vw;
+      height: 30px;
+      margin-top: 100px;
+    }
+
+    audio::-webkit-media-controls-enclosure, video::-webkit-media-controls-enclosure {
+      width: 100%;
+      max-width: 800px;
+      height: 30px;
+      flex-shrink: 0;
+      bottom: 0;
+      text-indent: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    video::-webkit-media-controls-enclosure {
+      padding: 0px 5px 5px 5px;
+      height: 35px;
+      flex-shrink: 0;
+    }
+
+    audio::-webkit-media-controls-panel {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      /* We use flex-start here to ensure that the play button is visible even
+       * if we are too small to show all controls.
+       */
+      justify-content: flex-start;
+      -webkit-user-select: none;
+      position: relative;
+      width: 100%;
+      z-index: 0;
+      overflow: hidden;
+      text-align: right;
+      bottom: auto;
+      height: 30px;
+      background-color: white;
+      border-radius: 5px;
+      /* The duration is also specified in MediaControlElements.cpp and LayoutTests/media/media-controls.js */
+      transition: opacity 0.3s;
+    }
+
+    audio::-webkit-media-controls-mute-button {
+      -webkit-appearance: media-mute-button;
+      display: flex;
+      flex: none;
+      border: none;
+      box-sizing: border-box;
+      width: 35px;
+      height: 30px;
+      line-height: 30px;
+      margin: 0 6px 0 0;
+      padding: 0;
+      background-color: initial;
+      color: inherit;
+    }
+
+    audio::-webkit-media-controls-play-button {
+      display: none;
+    }
+  }
+}
+@media only screen and (max-width:900px){
+  .product-page-container{
+    .product-page-content{
+      .product-page-top{
+        .product-page-info{
+          display: none;
         }
       }
     }

@@ -2,8 +2,11 @@ import React, {useEffect} from 'react';
 import './Cart.css'
 import {useDispatch, useSelector} from "react-redux";
 import {hideCart} from "../../redux/reducers/cartReducer";
-import {AnimatePresence, motion} from 'framer-motion'
+import {motion} from 'framer-motion'
 import CartItem from "../CartItem/CartItem";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimesCircle} from '@fortawesome/free-regular-svg-icons'
+import {Link} from "react-router-dom";
 
 const transition = {duration: 0.5, ease: 'easeOut'}
 
@@ -39,8 +42,8 @@ const variants = {
 const Cart = () => {
   const cartIsShow = useSelector(state => state.cartReducer.show)
   const items = useSelector(state => state.cartReducer.items)
-  const total = useSelector(state=>state.cartReducer.total)
-  const totalQuantity = useSelector(state=>state.cartReducer.totalQuantity)
+  const total = useSelector(state => state.cartReducer.total).toFixed(2)
+  const totalQuantity = useSelector(state => state.cartReducer.totalQuantity)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -54,8 +57,9 @@ const Cart = () => {
 
   return (
     cartIsShow &&
-    <AnimatePresence>
-      <motion.div onClick={()=>hideCart()(dispatch)} key="backdrop" className="cart-backdrop" variants={backdropVariants} initial="initial" animate="animate"
+    <>
+      <motion.div onClick={() => hideCart()(dispatch)} key="backdrop" className="cart-backdrop"
+                  variants={backdropVariants} initial="initial" animate="animate"
                   exit="exit"/>
       <motion.div key="cart" className="cart-container"
                   variants={variants}
@@ -63,8 +67,12 @@ const Cart = () => {
                   animate="animate"
                   exit="exit">
         <div className="cart-top">
-          <div>Your Cart ({totalQuantity})</div>
-          <button onClick={() => hideCart()(dispatch)}><span>x</span></button>
+          <Link to="/cart" onClick={() => hideCart()(dispatch)}>
+            <div className="btn-tocart">Your Cart ({totalQuantity})</div>
+          </Link>
+          <div className="btn-hidecart" onClick={() => hideCart()(dispatch)}>
+            <FontAwesomeIcon icon={faTimesCircle}/>
+          </div>
         </div>
         <div className="cart-middle">
           {
@@ -72,15 +80,15 @@ const Cart = () => {
           }
         </div>
         <div className="cart-bottom">
-          <div>Cart Total: ${total}</div>
+          <div>Sub total: ${total}</div>
           <div>
-            <button disabled={totalQuantity===0}>CHECKOUT</button>
+            <button className="btn-checkout" disabled={totalQuantity === 0}>CHECKOUT</button>
           </div>
           <div>Free Shipping on all orders.</div>
         </div>
       </motion.div>
-    </AnimatePresence>
+    </>
   )
 }
 
-export default Cart
+export {Cart}

@@ -1,3 +1,8 @@
+.tesla-font {
+  font-family: "tesla", sans-serif;
+  font-size: 20px;
+}
+
 .header {
   position: fixed;
   width: 100%;
@@ -6,20 +11,36 @@
   padding: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  background: rgba(255, 255, 255, 0.8);
   z-index: 5;
   transition: all 0.5s ease-in-out;
 }
-.header .header-left, .header .header-right {
-  width: 200px;
+.header .header-left {
+  position: absolute;
+  left: 10px;
 }
-.header-item svg {
-  height: 12px;
+.header .header-right {
+  position: absolute;
+  right: 10px;
+}
+.header-item .header-svg-large {
+  height: 16px;
   transition: all 0.5s ease-in-out;
 }
-.header-item .svg-large {
-  height: 16px;
+.header-item .header-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px lightgrey solid;
+  border-radius: 20px;
+  padding: 10px;
+}
+.header-item .header-search .header-search-input {
+  margin: 0 10px;
+  border: none;
+  outline: none;
 }
 .header-item ul {
   font-size: 16px;
@@ -28,27 +49,43 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 .header-item ul li {
   margin: 0 10px;
+  transition: all 0.5s ease-in-out;
 }
-.header-item ul li button {
+.header-item ul li:hover {
+  color: lightblue;
+  cursor: pointer;
+}
+.header-item ul li .header-btn-cart, .header-item ul li .header-btn-search {
   position: relative;
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: 20px;
 }
-.header-item ul li span {
-  transition: all 0.5s ease-in-out;
-}
-.header-item ul li .cart-number {
+.header-item ul li .header-cart-number {
   position: absolute;
   top: -10px;
   right: -10px;
   height: 20px;
   width: 20px;
   border-radius: 50%;
+  background: black;
+  color: white;
   transition: all 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 900px) {
+  .header .header-middle, .header .header-left {
+    display: none;
+  }
+  .header .header-right {
+    position: relative;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=Header.css.map */
