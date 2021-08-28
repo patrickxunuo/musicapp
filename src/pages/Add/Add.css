@@ -1,0 +1,18 @@
+.add-page {
+  min-height: 87vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-page input {
+  height: 40px;
+}
+
+.add-page-grid {
+  width: min(1000px, 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=Add.css.map */

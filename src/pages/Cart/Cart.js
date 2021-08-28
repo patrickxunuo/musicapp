@@ -2,9 +2,8 @@ import React from 'react';
 import CartItem from "../../components/CartItem/CartItem";
 import {useSelector} from "react-redux";
 import './Cart.css'
-import {addQuantity, desQuantity, removeItem} from "../../redux/reducers/cartReducer";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMinus, faPlus, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 const Cart = () => {
   const items = useSelector(state => state.cartReducer.items)
@@ -12,30 +11,33 @@ const Cart = () => {
   const totalQuantity = useSelector(state => state.cartReducer.totalQuantity)
 
   return (
-    <div className="cart-page">
+    <motion.div className="cart-page"
+                initial={{opacity: 0}}
+                animate={{opacity: 1, transition:{delay: 0.5}}}
+                exit={{opacity: 0}}>
       <div className="cart-page-container">
         <div className="cart-page-top">
           Shopping Cart
         </div>
         <div className="cart-page-middle">
-
-          <div className="cart-item-container  cart-page-bar">
-            <div>
-              Cover
+          { totalQuantity!==0  &&
+            <div className="cart-item-container  cart-page-bar">
+              <div className="product-cover-text">
+                Cover
+              </div>
+              <div className="cart-item-column-second product-container">
+                Info
+              </div>
+              <div>Subtotal</div>
+              <div className="product-remove">
+                Remove
+              </div>
             </div>
-            <div className="cart-item-column-second product-container">
-              Info
-            </div>
-            <div>Subtotal</div>
-            <div className="product-remove">
-              Remove
-            </div>
-          </div>
-
+          }
           {
             totalQuantity === 0 &&
             <h1 className="cart-page-empty">
-              Your cart is empty.
+              <span><pre>Your cart is empty. </pre></span><Link to="/shop"><span className="cart-page-shopping"> Go Shopping</span></Link>.
             </h1>
           }
           {
@@ -54,7 +56,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

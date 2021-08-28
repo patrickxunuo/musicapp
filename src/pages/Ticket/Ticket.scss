@@ -1,0 +1,40 @@
+
+.ticket-page {
+  min-height: 87vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .ticket-page-grid {
+    width: min(1000px, 90%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #placeHolder{
+      img{
+        height:200px !important;
+        width: 200px !important;
+      }
+    }
+    input {
+      height: 40px;
+      color: black;
+      font-weight: bold;
+    }
+
+    fieldset {
+      border: none;
+    }
+
+    .ticket-img-wrap {
+      height: 256px;
+      width: 256px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+

@@ -22,7 +22,13 @@
   padding-bottom: 50px;
 }
 .cart-page .cart-page-container .cart-page-middle .cart-page-empty {
-  text-align: center;
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-page .cart-page-container .cart-page-middle .cart-page-empty .cart-page-shopping {
+  text-decoration: underline;
 }
 .cart-page .cart-page-container .cart-page-bottom {
   width: 80%;

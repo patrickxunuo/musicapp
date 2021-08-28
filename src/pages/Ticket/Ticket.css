@@ -1,0 +1,34 @@
+.ticket-page {
+  min-height: 87vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ticket-page .ticket-page-grid {
+  width: min(1000px, 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ticket-page .ticket-page-grid #placeHolder img {
+  height: 200px !important;
+  width: 200px !important;
+}
+.ticket-page .ticket-page-grid input {
+  height: 40px;
+  color: black;
+  font-weight: bold;
+}
+.ticket-page .ticket-page-grid fieldset {
+  border: none;
+}
+.ticket-page .ticket-page-grid .ticket-img-wrap {
+  height: 256px;
+  width: 256px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=Ticket.css.map */

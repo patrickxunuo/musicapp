@@ -12,7 +12,7 @@ const initCart = {
   show: false,
   total: 0,
   items: [],
-  totalQuantity: 0
+  totalQuantity: 0,
 }
 
 export const hideCart = () => dispatch => {

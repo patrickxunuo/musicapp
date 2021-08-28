@@ -21,7 +21,6 @@ const Header = () => {
   const totalQuantity = useSelector(state => state.cartReducer.totalQuantity)
   const dispatch = useDispatch()
 
-
   return (
     <header className="header">
       <div className="header-item header-left">

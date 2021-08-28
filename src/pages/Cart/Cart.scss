@@ -23,7 +23,13 @@
       padding-bottom: 50px;
 
       .cart-page-empty {
-        text-align: center;
+        min-height: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .cart-page-shopping{
+          text-decoration: underline;
+        }
       }
     }
 
